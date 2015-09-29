@@ -1,4 +1,4 @@
-project(RomanNumeralConverter)
+project(BlackWidow)
 cmake_minimum_required(VERSION 2.6)
 
 include_directories($ENV{GMOCK_HOME}/include $ENV{GMOCK_HOME}/gtest/include)
@@ -9,10 +9,10 @@ enable_testing()
 
 set(sources
    main.cpp
-   RomanConverterTest.cpp)
-add_executable(RomanConverterTest ${sources})
-target_link_libraries(RomanConverterTest pthread)
-target_link_libraries(RomanConverterTest gmock)
-target_link_libraries(RomanConverterTest gtest)
-add_dependencies(RomanConverterTest gmock)
-add_test(RomanConverterTest RomanConverterTest)
+   BlackWidowTest.cpp)
+add_executable(BlackWidowTest ${sources})
+target_link_libraries(BlackWidowTest pthread)
+target_link_libraries(BlackWidowTest gmock)
+target_link_libraries(BlackWidowTest gtest)
+add_dependencies(BlackWidowTest gmock)
+add_test(BlackWidowTest BlackWidowTest)
