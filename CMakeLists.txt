@@ -9,10 +9,10 @@ enable_testing()
 
 set(sources
    main.cpp
-   BlackWidowTest.cpp)
-add_executable(BlackWidowTest ${sources})
-target_link_libraries(BlackWidowTest pthread)
-target_link_libraries(BlackWidowTest gmock)
-target_link_libraries(BlackWidowTest gtest)
-add_dependencies(BlackWidowTest gmock)
-add_test(BlackWidowTest BlackWidowTest)
+   BowlingGameTest.cpp)
+add_executable(BolingGameTest ${sources})
+target_link_libraries(BolingGameTest pthread)
+target_link_libraries(BolingGameTest gmock)
+target_link_libraries(BolingGameTest gtest)
+add_dependencies(BolingGameTest gmock)
+add_test(BolingGameTest BolingGameTest)
