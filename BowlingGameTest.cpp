@@ -1,6 +1,7 @@
 #include "gmock/gmock.h"
+#include "BowlingGame.hpp"
 using ::testing::Eq;
 
-TEST(BowlingGameScoringMachine, DoesNothing) {
-  ASSERT_THAT(0, Eq(0));
+TEST(BowlingGame, testGutterGame) {
+  Game game;
 }
