@@ -3,7 +3,9 @@
 
 class Game
 {
-
+public:
+  void roll(int pins) {
+  }
 };
 
 #endif //BOWLING_HAME_HPP
