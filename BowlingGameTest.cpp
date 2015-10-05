@@ -9,8 +9,10 @@ public:
 };
 
 TEST_F(BowlingGameTest, testGutterGame) {
-  for (int i = 0; i < 20; i++) {
-    game.roll(0);
+  int pins = 0;
+  int n = 20;
+  for (int i = 0; i < n; i++) {
+    game.roll(pins);
   }
   ASSERT_THAT(game.score(), Eq(0));
 }
