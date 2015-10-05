@@ -1,17 +1,21 @@
 #include "gmock/gmock.h"
 #include "BowlingGame.hpp"
-using ::testing::Eq;
 
-TEST(BowlingGame, testGutterGame) {
+using namespace testing;
+
+class BowlingGameTest : public Test {
+public:
   Game game;
+};
+
+TEST_F(BowlingGameTest, testGutterGame) {
   for (int i = 0; i < 20; i++) {
     game.roll(0);
   }
   ASSERT_THAT(game.score(), Eq(0));
 }
 
-TEST(BowlingGame, testAllOnes) {
-  Game game;
+TEST_F(BowlingGameTest, testAllOnes) {
   for (int i = 0; i < 20; i++) {
     game.roll(1);
   }
