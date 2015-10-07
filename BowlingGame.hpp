@@ -6,6 +6,7 @@ class Game
 public:
   Game() : totalScore(0) {}
 
+  //TODO: fix design
   void roll(int pins) {
     totalScore += pins;
   }
