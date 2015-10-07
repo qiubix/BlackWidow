@@ -4,11 +4,11 @@
 class Game
 {
 public:
-  Game() : totalScore(0) {}
+  Game() : totalScore(0), currentRoll(0) {}
 
-  //TODO: fix design
   void roll(int pins) {
     totalScore += pins;
+    rolls[currentRoll++] = pins;
   }
 
   int score() {
@@ -16,6 +16,8 @@ public:
   }
 private:
   int totalScore;
+  int rolls[21];
+  int currentRoll;
 };
 
 #endif //BOWLING_HAME_HPP
