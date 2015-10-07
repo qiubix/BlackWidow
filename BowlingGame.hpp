@@ -12,6 +12,10 @@ public:
   }
 
   int score() {
+    int totalScore = 0;
+    for (int i = 0; i < 21; i++) {
+      totalScore += rolls[i];
+    }
     return totalScore;
   }
 private:
