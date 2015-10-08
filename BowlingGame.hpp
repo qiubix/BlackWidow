@@ -4,10 +4,7 @@
 class Game
 {
 public:
-  Game() : totalScore(0), currentRoll(0) {}
-
   void roll(int pins) {
-    totalScore += pins;
     rolls[currentRoll++] = pins;
   }
 
@@ -18,10 +15,10 @@ public:
     }
     return totalScore;
   }
+
 private:
-  int totalScore;
-  int rolls[21];
-  int currentRoll;
+  int rolls[21] = {};
+  int currentRoll = 0;
 };
 
 #endif //BOWLING_HAME_HPP
