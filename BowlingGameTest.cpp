@@ -23,10 +23,10 @@ TEST_F(BowlingGameTest, testAllOnes) {
   ASSERT_THAT(game.score(), Eq(20));
 }
 
-TEST_F(BowlingGameTest, testOneSpare) {
-  game.roll(5);
-  game.roll(5); //spare
-  game.roll(3);
-  rollMany(17,0);
-  ASSERT_THAT(game.score(), Eq(16));
-}
+//TEST_F(BowlingGameTest, testOneSpare) {
+//  game.roll(5);
+//  game.roll(5); //spare
+//  game.roll(3);
+//  rollMany(17,0);
+//  ASSERT_THAT(game.score(), Eq(16));
+//}
