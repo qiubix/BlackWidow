@@ -11,6 +11,8 @@ public:
   int score() {
     int totalScore = 0;
     for (int i = 0; i < 21; i++) {
+      if (rolls[i] + rolls[i+1] == 10) //spare
+        score += ...
       totalScore += rolls[i];
     }
     return totalScore;
