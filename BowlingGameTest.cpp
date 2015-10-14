@@ -15,6 +15,10 @@ public:
     game.roll(5);
     game.roll(5);
   }
+
+  void rollStrike() {
+    game.roll(10);
+  }
 };
 
 TEST_F(BowlingGameTest, testGutterGame) {
@@ -35,7 +39,7 @@ TEST_F(BowlingGameTest, testOneSpare) {
 }
 
 TEST_F(BowlingGameTest, testOneStrike) {
-  game.roll(10); //strike
+  rollStrike();
   game.roll(3);
   game.roll(4);
   rollMany(16, 0);
