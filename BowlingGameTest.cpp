@@ -33,3 +33,11 @@ TEST_F(BowlingGameTest, testOneSpare) {
   rollMany(17,0);
   ASSERT_THAT(game.score(), Eq(16));
 }
+
+TEST_F(BowlingGameTest, testOneStrike) {
+  game.roll(10); //strike
+  game.roll(3);
+  game.roll(4);
+  rollMany(16, 0);
+  ASSERT_THAT(game.score(), Eq(24));
+}
