@@ -11,6 +11,10 @@ public:
       game.roll(pins);
     }
   }
+  void rollSpare() {
+    game.roll(5);
+    game.roll(5);
+  }
 };
 
 TEST_F(BowlingGameTest, testGutterGame) {
@@ -24,8 +28,7 @@ TEST_F(BowlingGameTest, testAllOnes) {
 }
 
 TEST_F(BowlingGameTest, testOneSpare) {
-  game.roll(5);
-  game.roll(5); //spare
+  rollSpare();
   game.roll(3);
   rollMany(17,0);
   ASSERT_THAT(game.score(), Eq(16));
