@@ -12,7 +12,7 @@ public:
     int totalScore = 0;
     int frameIndex = 0;
     for (int frame = 0; frame < 10; frame++) {
-      if (rolls[frameIndex] + rolls[frameIndex+1] == 10) { //spare
+      if (isSpare(frameIndex)) {
         totalScore += 10 + rolls[frameIndex+2];
         frameIndex += 2;
       }
@@ -27,6 +27,10 @@ public:
 private:
   int rolls[21] = {};
   int currentRoll = 0;
+
+  bool isSpare(int frameIndex) {
+    return rolls[frameIndex] + rolls[frameIndex+1] == 10;
+  }
 };
 
 #endif //BOWLING_HAME_HPP
