@@ -10,8 +10,10 @@ public:
 
   int score() {
     int totalScore = 0;
-    for (int i = 0; i < 21; ++i) {
-      totalScore += rolls[i];
+    int i = 0;
+    for (int frame = 0; frame < 10; ++frame) {
+      totalScore += rolls[i] + rolls[i+1];
+      i += 2;
     }
     return totalScore;
   }
