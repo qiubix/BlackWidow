@@ -12,16 +12,16 @@ public:
     int totalScore = 0;
     int frameIndex = 0;
     for (int frame = 0; frame < 10; ++frame) {
-      if (rolls[frameIndex] == 10) { //strike
-        totalScore += 10 + rolls[frameIndex+1] + rolls[frameIndex+2];
+      if (isStrike(frameIndex)) {
+        totalScore += 10 + strikeBonus(frameIndex);
         frameIndex++;
       }
       else if (isSpare(frameIndex)) {
-        totalScore += 10 + rolls[frameIndex+2];
+        totalScore += 10 + spareBonus(frameIndex);
         frameIndex += 2;
       }
       else {
-        totalScore += rolls[frameIndex] + rolls[frameIndex+1];
+        totalScore += sumOfBallsInFrame(frameIndex);
         frameIndex += 2;
       }
     }
@@ -32,8 +32,24 @@ private:
   int currentRoll = 0;
   int rolls[21] = {};
 
+  bool isStrike(int frameIndex) const {
+    return rolls[frameIndex] == 10;
+  }
+
   bool isSpare(int frameIndex) const {
     return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
+  }
+
+  int strikeBonus(int frameIndex) const {
+    return rolls[frameIndex+1] + rolls[frameIndex+2];
+  }
+
+  int spareBonus(int frameIndex) const {
+    return rolls[frameIndex+2];
+  }
+
+  int sumOfBallsInFrame(int frameIndex) const {
+    return rolls[frameIndex] + rolls[frameIndex+1];
   }
 };
 
