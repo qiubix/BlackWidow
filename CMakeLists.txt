@@ -9,6 +9,7 @@ enable_testing()
 
 set(sources
    main.cpp
+   BowlingGame.hpp
    BowlingGameTest.cpp)
 add_executable(BowlingGameTest ${sources})
 target_link_libraries(BowlingGameTest pthread)
