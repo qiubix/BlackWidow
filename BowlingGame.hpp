@@ -12,7 +12,11 @@ public:
     int totalScore = 0;
     int frameIndex = 0;
     for (int frame = 0; frame < 10; ++frame) {
-      if (isSpare(frameIndex)) {
+      if (rolls[frameIndex] == 10) { //strike
+        totalScore += 10 + rolls[frameIndex+1] + rolls[frameIndex+2];
+        frameIndex++;
+      }
+      else if (isSpare(frameIndex)) {
         totalScore += 10 + rolls[frameIndex+2];
         frameIndex += 2;
       }
