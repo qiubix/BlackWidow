@@ -3,19 +3,23 @@
 
 using namespace testing;
 
-
-TEST(BowlingGameTest, testGutterGame) {
+class BowlingGameTest : public Test {
+public:
   Game game;
-  for (int i = 0; i < 20; ++i) {
-    game.roll(0);
+
+  void rollMany(int n, int pins) {
+    for (int i = 0; i < n; ++i) {
+      game.roll(pins);
+    }
   }
+};
+
+TEST_F(BowlingGameTest, testGutterGame) {
+  rollMany(20, 0);
   ASSERT_THAT(game.score(), Eq(0));
 }
 
-TEST(BowlingGameTest, testAllOnes) {
-  Game game;
-  for (int i = 0; i < 20; ++i) {
-    game.roll(1);
-  }
+TEST_F(BowlingGameTest, testAllOnes) {
+  rollMany(20, 1);
   ASSERT_THAT(game.score(), Eq(20));
 }
