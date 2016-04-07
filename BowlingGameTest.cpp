@@ -11,3 +11,11 @@ TEST(BowlingGameTest, testGutterGame) {
   }
   ASSERT_THAT(game.score(), Eq(0));
 }
+
+TEST(BowlingGameTest, testAllOnes) {
+  Game game;
+  for (int i = 0; i < 20; ++i) {
+    game.roll(1);
+  }
+  ASSERT_THAT(game.score(), Eq(20));
+}
