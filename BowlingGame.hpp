@@ -10,12 +10,15 @@ public:
 
   int score() {
     int totalScore = 0;
-    for (int i = 0; i < 21; ++i) {
-      if (i >= 2 && rolls[i-2] + rolls[i-1] == 10) {
-        totalScore += 2 * rolls[i];
+    int frameIndex = 0;
+    for (int frame = 0; frame < 10; ++frame) {
+      if (rolls[frameIndex] + rolls[frameIndex+1] == 10) {
+        totalScore += 10 + rolls[frameIndex+2];
+        frameIndex += 2;
       }
       else {
-        totalScore += rolls[i];
+        totalScore += rolls[frameIndex] + rolls[frameIndex+1];
+        frameIndex += 2;
       }
     }
     return totalScore;
