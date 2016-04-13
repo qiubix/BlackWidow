@@ -16,6 +16,10 @@ public:
         totalScore += 10 + spareBonus(frameIndex);
         frameIndex += 2;
       }
+      else if (isStrike(frameIndex)) {
+        totalScore += 10 + strikeBonus(frameIndex);
+        frameIndex += 1;
+      }
       else {
         totalScore += sumPinsInOneFrame(frameIndex);
         frameIndex += 2;
@@ -32,12 +36,20 @@ private:
     return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
   }
 
+  bool isStrike(int frameIndex) const {
+    return rolls[frameIndex] == 10;
+  }
+
   int sumPinsInOneFrame(int frameIndex) {
     return rolls[frameIndex] + rolls[frameIndex+1];
   }
 
   int spareBonus(int frameIndex) {
     return rolls[frameIndex+2];
+  }
+
+  int strikeBonus(int frameIndex) {
+    return rolls[frameIndex+1] + rolls[frameIndex+2];
   }
 };
 
