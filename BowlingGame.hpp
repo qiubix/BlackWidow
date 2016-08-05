@@ -4,12 +4,18 @@
 class Game
 {
 public:
+  Game() : totalScore(0) {}
+
   void roll(int pins) {
+    totalScore += pins;
   }
 
   int score() {
-    return 0;
+    return totalScore;
   }
+
+private:
+  int totalScore;
 
 };
 
