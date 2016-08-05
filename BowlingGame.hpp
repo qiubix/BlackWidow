@@ -11,15 +11,15 @@ public:
 
   int score() {
     int totalScore = 0;
-    int currentRoll = 0;
+    int rollIndex = 0;
     for (int frame = 0; frame < 10; frame++) {
-      if (rolls[currentRoll] + rolls[currentRoll+1] == 10) { //spare
-        totalScore += rolls[currentRoll] + rolls[currentRoll+1] + rolls[currentRoll+2];
+      if (isSpare(rollIndex)) {
+        totalScore += 10 + spareBonus(rollIndex);
       }
       else {
-        totalScore += rolls[currentRoll] + rolls[currentRoll+1];
+        totalScore += frameTotal(rollIndex);
       }
-      currentRoll += 2;
+      rollIndex += 2;
     }
     return totalScore;
   }
@@ -27,6 +27,18 @@ public:
 private:
   int rolls[21] = {};
   int currentRoll = 0;
+
+  bool isSpare(int rollIndex) {
+    return rolls[rollIndex] + rolls[rollIndex+1] == 10;
+  }
+
+  int frameTotal(int rollIndex) {
+    return rolls[rollIndex] + rolls[rollIndex+1];
+  }
+
+  int spareBonus(int rollIndex) {
+    return rolls[rollIndex+2];
+  }
 };
 
 #endif //BOWLING_HAME_HPP
